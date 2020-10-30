@@ -1,0 +1,13 @@
+.image {
+    height: 150px;
+    width: 100%;
+}
+
+.content {
+    grid-area: c;
+    background-color: lightgreen;
+}
+
+.descriptionBlock {
+    padding: 10px;
+}
