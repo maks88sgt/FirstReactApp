@@ -3,14 +3,9 @@ import classes from './Dialogs.module.css'
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem"
 
-const DialogItems = () => {
-    let  dialogData = [
-        {id: 1, name: 'Dmitry'},
-        {id: 2, name: 'Andrey'},
-        {id: 3, name: 'Maks'},
-    ];
+const DialogItems = (props) => {
 
-    let dialogElements = dialogData
+    let dialogElements = props.dialogData
         .map((dialog)=> <DialogItem id={dialog.id} name={dialog.name}/>);
 
     return (
@@ -20,14 +15,9 @@ const DialogItems = () => {
     );
 };
 
-const Messages = () => {
-    let  messageData = [
-        {id: 1, message: 'Hi!'},
-        {id: 2, message: 'How are you?'},
-        {id: 3, message: 'Let\'s go to the cinema'},
-    ];
+const Messages = (props) => {
 
-    let messageElements = messageData
+    let messageElements = props.messageData
         .map((mes)=> <Message message = {mes.message}/>)
 
     return (
@@ -37,13 +27,11 @@ const Messages = () => {
     );
 };
 
-
-
-const Dialogs = () => {
+const Dialogs = (props) => {
     return (
         <div className={classes.dialogs}>
-            <DialogItems/>
-            <Messages/>
+            <DialogItems dialogData = {props.dialogData}/>
+            <Messages messageData = {props.messageData}/>
         </div>
     );
 };

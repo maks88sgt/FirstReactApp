@@ -8,21 +8,21 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import {Route, BrowserRouter} from "react-router-dom";
 
-const App = () => {
-  return (
-      <BrowserRouter>
-          <div className='app-wrapper'>
-              <Header/>
-              <Nav/>
-              <div className='app-wrapper-content'>
-                  <Route path='/dialogs' component={Dialogs}/>
-                  <Route path='/profile' component={Profile}/>
-                  <Route path='/news' component={News}/>
-                  <Route path='/Settings' component={Settings}/>
-              </div>
-          </div>
-      </BrowserRouter>
-  );
+const App = (props) => {
+    return (
+        <BrowserRouter>
+            <div className='app-wrapper'>
+                <Header/>
+                <Nav/>
+                <div className='app-wrapper-content'>
+                    <Route path='/dialogs' render={() => <Dialogs dialogData={props.dialogData} messageData = {props.messageData}/>}/>
+                    <Route path='/profile' render={() => <Profile postsData = {props.postsData}/>}/>
+                    <Route path='/news' render={() => <News/>}/>
+                    <Route path='/Settings' render={() => <Settings/>}/>
+                </div>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;
