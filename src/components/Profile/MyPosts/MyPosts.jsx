@@ -7,10 +7,10 @@ const MyPosts = (props) => {
 
     let postsElements = props.postsData
         .map ((currentPost)=> <Post post = {currentPost.post} likesCount = {currentPost.likesCount}/>);
+
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        debugger;
         props.dispatch({ type: 'ADD-POST',});
     };
 
