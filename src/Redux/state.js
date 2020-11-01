@@ -1,15 +1,20 @@
+let rerenderEntireTree = () =>{
+    console.log ('State is changed')
+}
+
 let state = {
     profilePage: {
         posts: [
-            {id: 1, message: 'Hi, how are you?', likeCount: 20},
-            {id: 2, message: 'It\'s my first post', likeCount: 11},
-            {id: 3, message: 'I finished my first task', likeCount: 5},
+            {id: 1, post: 'Hi, how are you?', likesCount: 20},
+            {id: 2, post: 'It\'s my first post', likesCount: 11},
+            {id: 3, post: 'I finished my first task', likesCount: 5},
         ],
         dialogs: [
             {id: 1, name: 'Egor'},
             {id: 2, name: 'Andrey'},
             {id: 3, name: 'Maks'},
         ],
+        newPostText: '',
     },
     messagesPage: {
         messages: [
@@ -19,5 +24,22 @@ let state = {
         ],
     },
 };
+
+export let addPost = () => {
+    let newPost = {
+        id: 4,
+        post: state.profilePage.newPostText,
+        likesCount: 0,
+    };
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+
+}
 
 export default state;
