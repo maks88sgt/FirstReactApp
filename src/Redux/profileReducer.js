@@ -6,13 +6,13 @@ export const profileReducer = (state, action) => {
     if (action.type === ADD_POST) {
         let newPost = {
             id: 4,
-            post: state.profilePage.newPostText,
+            post: state.newPostText,
             likesCount: 0,
         };
-        state.profilePage.posts.push(newPost);
-        state.profilePage.newPostText = '';
+        state.posts.push(newPost);
+        state.newPostText = '';
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
-        state.profilePage.newPostText = action.newText;
+        state.newPostText = action.newText;
     }
     return state;
 };
