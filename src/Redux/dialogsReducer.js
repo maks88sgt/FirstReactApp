@@ -28,5 +28,7 @@ export const dialogsReducer = (state = initialState, action) => {
         default:
             return state;
     }
+};
 
-}
+export const updateNewMessageActionCreator = (text) =>({type:UPDATE_NEW_MESSAGE_TEXT, message: text,});
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE, });

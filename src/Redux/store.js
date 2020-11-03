@@ -41,7 +41,6 @@ let store = {
     },
 
     dispatch(action) {
-
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
         this._callSubscriber(this._state);
@@ -50,6 +49,7 @@ let store = {
 
 export const addPostActionCreator = () => ({type: ADD_POST,});
 export const updateNewPostActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text,});
+
 export const updateNewMessageActionCreator = (text) =>({type:UPDATE_NEW_MESSAGE_TEXT, message: text,});
 export const sendMessageActionCreator = () => ({type: SEND_MESSAGE, });
 
