@@ -21,7 +21,7 @@ const Dialogs = (props) => {
     let sendMessage = () => {
         props.sendMessage();
     };
-
+    debugger;
     return (
         <div className={classes.dialogs}>
             <div>{dialogElements}</div>

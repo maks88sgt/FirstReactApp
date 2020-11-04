@@ -6,7 +6,7 @@ const MyPosts = (props) => {
 
     let postsElements = props.posts
         .map ((currentPost)=> <Post post = {currentPost.post} likesCount = {currentPost.likesCount}/>);
-    debugger;
+
     let onAddPost = () => {
         props.addPost();
     };

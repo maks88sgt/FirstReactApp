@@ -9,7 +9,6 @@ import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
-    debugger;
     return (
         <div className='app-wrapper'>
             <Header/>
@@ -17,11 +16,11 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                 <Route path='/dialogs'
                        render={() => <DialogsContainer
-                           store = {props.store}
+                           //store = {props.store}
                            />}/>
                 <Route path='/profile'
                        render={() => <Profile
-                           store = {props.store}
+                           //store = {props.store}
                        />}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/Settings' render={() => <Settings/>}/>
