@@ -1,5 +1,5 @@
 import React from 'react';
-import Users from "./UsersClassComponent";
+import UsersAPIComponent from "./UsersAPIComponent";
 import {connect} from 'react-redux';
 import {
     followActionCreator,
@@ -37,6 +37,6 @@ let mapDispatchToProps = (dispatch) => {
     };
 };
 
-let UsersContainer = connect(mapStateToProps, mapDispatchToProps) (Users);
+let UsersContainer = connect(mapStateToProps, mapDispatchToProps) (UsersAPIComponent);
 
 export default UsersContainer;

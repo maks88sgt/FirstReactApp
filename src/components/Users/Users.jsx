@@ -1,65 +1,25 @@
 import React from 'react';
-import styles from './Users.module.css';
-import * as axios from 'axios';
-import userPhoto from '../../defaultUser.png'
-
+import styles from "./Users.module.css";
+import userPhoto from "../../defaultUser.png";
 
 let Users = (props) => {
-
-    if (props.users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            props.setUsers(response.data.items)
-        });
-
-        /*props.setUsers (
-            [
-                {
-                    id: 1,
-                    followed: false,
-                    photoUrl:'https://get.wallhere.com/photo/2560x1600-px-actors-Avatar-Fantastika-Fentezi-Miscellanea-movies-1687605.jpg',
-                    fullName: 'Dmitriy',
-                    status: 'Hi there!!',
-                    location: {city: 'Murmansk', country: 'Russia'},
-                },
-                {
-                    id: 2,
-                    followed: false,
-                    photoUrl: 'https://slgame.ru/img/2018/december/ubisoft-gotovit-igru-po-motivam-avatara_04-12-18-00-19-01.jpg',
-                    fullName: 'Alexander',
-                    status: 'Yo yo yo',
-                    location: {city: 'Moscow', country: 'Russia'},
-                },
-                {
-                    id: 3,
-                    followed: true,
-                    photoUrl: 'https://img2.goodfon.ru/original/600x1024/5/3d/avatar-neytiri-na-39-vi.jpg',
-                    fullName: 'Egor',
-                    status: 'In vocation',
-                    location: {city: 'Minsk', country: 'Belarus'},
-                },
-                {
-                    id: 4,
-                    followed: false,
-                    fullName: 'Mary',
-                    photoUrl: 'https://wallpaperaccess.com/full/861953.jpg',
-                    status: 'Nothing...',
-                    location: {city: 'London', country: 'UK'},
-                },
-                {
-                    id: 5,
-                    followed: false,
-                    photoUrl: 'https://cdn.wallpapersafari.com/11/23/pZXI2w.jpg',
-                    fullName: 'Sergey',
-                    status: 'I\'m on duty',
-                    location: {city: 'Voronezh', country: 'Russia'},
-                },
-            ],
-        )*/
+    let pagesCount = Math.ceil(props.totalUsersCount/props.pageSize);
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
     }
-    ;
-
 
     return (<div>
+        <div>
+            {pages.map((p) => <span
+                className={props.currentPage === p && styles.selectedPage}
+                onClick={() => {
+                    props.onPageChanged(p)
+                }}
+            >{p}</span>)
+            }
+        </div>
+
         {props.users.map(u => <div key={u.id}>
         <span>
             <div>
@@ -88,5 +48,4 @@ let Users = (props) => {
         </div>)}
     </div>);
 }
-
 export default Users;
