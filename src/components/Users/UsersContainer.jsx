@@ -1,10 +1,10 @@
 import React from 'react';
-import UsersAPIComponent from "./UsersAPIComponent";
+import UsersAPIComponent from './UsersAPIComponent';
 import {connect} from 'react-redux';
 import {
     followActionCreator,
     setCurrentPageActionCreator,
-    setUsersActionCreator, setUsersTotalCountActionCreator,
+    setUsersActionCreator, setUsersTotalCountActionCreator, toggleIsFetchingActionCreator,
     unFollowActionCreator
 } from "../../Redux/usersReducer";
 
@@ -14,6 +14,7 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching,
     };
 }
 
@@ -33,6 +34,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setTotalCount(totalCount) {
             dispatch (setUsersTotalCountActionCreator(totalCount));
+        },
+        toggleIsFetching (isFetching){
+            dispatch (toggleIsFetchingActionCreator(isFetching));
         }
     };
 };
