@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css';
-import Header from "./components/Header/Header.jsx";
+import HeaderContainer from "./components/Header/HeaderContainer.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 import News from "./components/News/News";
@@ -14,7 +14,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 const App = (props) => {
     return (
         <div className='app-wrapper'>
-            <Header/>
+            <HeaderContainer/>
             <Nav/>
             <div className='app-wrapper-content'>
                 <Route path='/dialogs'
