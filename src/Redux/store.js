@@ -53,5 +53,6 @@ export const updateNewPostActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT
 export const updateNewMessageActionCreator = (text) =>({type:UPDATE_NEW_MESSAGE_TEXT, message: text,});
 export const sendMessageActionCreator = () => ({type: SEND_MESSAGE, });
 
-export default store;
 window.store = store;
+
+export default store;
