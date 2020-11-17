@@ -10,6 +10,7 @@ const ProfileInfo = (props) => {
         <div>
             <img className={classes.image} src='https://www.nastol.com.ua/download.php?img=201705/2560x1600/nastol.com.ua-225408.jpg' alt ='lake' />
             <div className={classes.descriptionBlock}>
+                <div>{props.profile.fullName}</div>
                 <img src={props.profile.photos.large}/>
                 <div>{props.profile.aboutMe}</div>
             </div>
