@@ -41,7 +41,6 @@ let Users = (props) => {
                                 props.unFollow(u.id)
                             }
                             ;
-                            debugger;
                         });
                     }}> Unfollow </button> :
                     <button onClick={() => {
@@ -49,7 +48,8 @@ let Users = (props) => {
                             withCredentials: true,
                             headers: {
                                 "API-KEY": "3fb7a1a3-24b6-43a1-8418-563e9e0f87e4",
-                            },})
+                            },
+                        })
                             .then(response => {
                                 if (response.data.resultCode === 0) {
                                     props.follow(u.id)
