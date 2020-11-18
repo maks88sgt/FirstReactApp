@@ -1,5 +1,4 @@
 import React from 'react';
-import * as axios from 'axios';
 import Users from './Users';
 import Preloader from "../common/preloader";
 import {getUsers} from "../../API/api";
@@ -17,7 +16,6 @@ class UsersAPIComponent extends React.Component {
     }
 
     onPageChanged = (pageNumber) => {
-        debugger;
         this.props.toggleIsFetching(true);
         getUsers(pageNumber, this.props.pageSize).
         then(data => {
@@ -27,8 +25,6 @@ class UsersAPIComponent extends React.Component {
         });
 
     };
-
-    debugger;
 
     render() {
         return <>
@@ -41,6 +37,8 @@ class UsersAPIComponent extends React.Component {
                 users={this.props.users}
                 follow={this.props.follow}
                 unFollow={this.props.unFollow}
+                followingProgress = {this.props.followingProgress}
+                toggleFollowingProgress = {this.props.toggleFollowingProgress}
             />
         </>
     };
