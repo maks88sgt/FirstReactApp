@@ -20,6 +20,7 @@ const Nav = () => {
             <div className={classes.item}>
                 <Link to = '/users' activeClassName ={classes.active}>Users</Link>
             </div>
+
         </nav>
     );
 };
