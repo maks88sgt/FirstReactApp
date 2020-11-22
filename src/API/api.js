@@ -10,8 +10,7 @@ const instanceOfAxios = axios.create({
 )
 
 
-const UsersAPI =
-{
+export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {
         return instanceOfAxios.get(`users?page=${currentPage}&count=${pageSize}`).then(response => {
             return response.data;
@@ -24,7 +23,17 @@ const UsersAPI =
 
     unfollow(userId) {
         return instanceOfAxios.delete(`follow/${userId}`);
+    },
+
+    getProfile (userId) {
+        return instanceOfAxios.get(`profile/${userId}`);
     }
 }
 
-export default UsersAPI;
+export const authAPI = {
+    me () {
+        return instanceOfAxios.get(`auth/me`);
+    }
+}
+
+

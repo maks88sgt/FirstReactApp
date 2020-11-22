@@ -2,8 +2,8 @@ import React from 'react';
 import UsersAPIComponent from './UsersAPIComponent';
 import {connect} from 'react-redux';
 import {
-    followSuccess, setCurrentPage, toggleIsFetching,
-    unFollowSuccess, toggleFollowingProgress, getUsers, unfollow, follow
+    setCurrentPage, toggleIsFetching,
+    toggleFollowingProgress, getUsers, unfollow, follow
 } from "../../Redux/usersReducer";
 
 let mapStateToProps = (state) => {
