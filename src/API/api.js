@@ -26,14 +26,29 @@ export const usersAPI = {
     },
 
     getProfile (userId) {
-        return instanceOfAxios.get(`profile/${userId}`);
+        console.warn('Obsolete method. Please refactor it. ')
+        return profileAPI.getProfile(userId);
     }
-}
+};
 
 export const authAPI = {
     me () {
         return instanceOfAxios.get(`auth/me`);
+    },
+};
+
+export const profileAPI = {
+    getProfile (userId) {
+        return instanceOfAxios.get(`profile/${userId}`);
+    },
+
+    getStatus (userId) {
+        return instanceOfAxios.get(`profile/status/${userId}`);
+    },
+
+    updateStatus (status) {
+        return instanceOfAxios.put(`profile/status`, {status: status});
     }
-}
+};
 
 
