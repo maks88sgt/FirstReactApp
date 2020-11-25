@@ -1,6 +1,6 @@
 import React from 'react';
 import Users from './Users';
-import Preloader from "../common/preloader";
+import Preloader from "../common/Preloader/preloader";
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {

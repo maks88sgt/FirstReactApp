@@ -1,5 +1,5 @@
 import React from 'react';
-import preloader from "../../fetching.svg";
+import preloader from "../../../fetching.svg";
 
 const Preloader = (pops) => {
     return <img src={preloader}/>;

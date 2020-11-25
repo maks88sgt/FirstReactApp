@@ -35,6 +35,9 @@ export const authAPI = {
     me () {
         return instanceOfAxios.get(`auth/me`);
     },
+    login () {
+
+    },
 };
 
 export const profileAPI = {
