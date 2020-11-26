@@ -5,31 +5,35 @@ import {required} from "../../utilites/validators";
 import {login} from "../../Redux/auth-reducer";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import styles from './../common/FormsControl/FormsControls.module.css'
 
 const LoginForm = (props) => {
     return (
-        <form onSubmit = {props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
             <div>
                 <Field placeholder={'Email'}
                        component={Input}
-                       name = {'email'}
-                       validate = {[required]}
+                       name={'email'}
+                       validate={[required]}
                 />
             </div>
             <div>
                 <Field placeholder={'Password'}
                        component={Input}
-                       name = {'password'}
-                       type = {'password'}
-                       validate = {[required]}
+                       name={'password'}
+                       type={'password'}
+                       validate={[required]}
                 />
             </div>
             <div>
                 <Field type={'checkbox'}
                        component={Input}
-                       name = {'rememberMe'}
+                       name={'rememberMe'}
                 /> remember me
             </div>
+            {props.error && <div className={styles.summaryFormError}>
+                {props.error}
+            </div>}
             <div>
                 <button>Sign in</button>
             </div>
@@ -37,7 +41,7 @@ const LoginForm = (props) => {
     );
 };
 
-const LoginReduxForm = reduxForm ({form: 'login'}) (LoginForm)
+const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 
 const Login = (props) => {
@@ -56,7 +60,7 @@ const Login = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-    isAuth:state.auth.isAuth,
+    isAuth: state.auth.isAuth,
 })
 
-export default connect(mapStateToProps, {login}) (Login);
+export default connect(mapStateToProps, {login})(Login);

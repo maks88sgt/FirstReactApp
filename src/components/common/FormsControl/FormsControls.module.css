@@ -7,3 +7,8 @@
 .error span {
     color: red;
 }
+
+.summaryFormError {
+    color: red;
+    border: solid red 2px;
+}
