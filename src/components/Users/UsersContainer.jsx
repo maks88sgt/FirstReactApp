@@ -23,5 +23,4 @@ export default compose (
     connect(mapStateToProps, {
     follow, setCurrentPage,
     unfollow, toggleFollowingProgress, getUsers,}),
-    withAuthRedirect,
 )(UsersAPIComponent);
